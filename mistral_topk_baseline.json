@@ -24,7 +24,7 @@
 
       "num_epochs": 3,
       "batch_size": 15,
-      "micro_batch_size": 3
+      "micro_batch_size": 3,
 
       "lr": 2e-4,
       "scheduler_type": "constant_with_warmup",
