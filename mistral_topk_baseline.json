@@ -1,18 +1,36 @@
 {
-  "adapter_name": "mistral_topk",
-  "num_experts_": 8,
-  "top_k_": 2,
-  "act_fn_": "silu",
-  "router_aux_loss_coef_": 0.01,
-  "router_init_range_": 0.02,
-  "jitter_noise_": 0.0,
+  "cutoff_len": 2048,
+  "train_strategy": "optim",
+  "save_step": 200,
+  "lora": [
+    {
+      "name": "mistral_topk",
+      "method": "mixlora",
 
-  "ffn_dropout_": 0.1,
-  "data": "yahma/alpaca-cleaned",
-  "learning_rate": 2e-4,
-  "batch_size": 8,
-  "num_epochs": 1,
-  
-  "model_type": "mistral",
-  "notes": "Run Mistral-7B with sparse MoE + top-k routing"
+      "num_experts": 8,
+      "top_k": 2,
+      "router_aux_loss_coef": 0.01,
+      "router_init_range": 0.02,
+      "jitter_noise": 0.0,
+
+      "r": 8,
+      "lora_alpha": 16,
+      "lora_dropout": 0.05,
+      "target_modules": ["gate_proj", "up_proj", "down_proj"],
+
+      "task_name": "casual",
+      "data": "yahma/alpaca-cleaned",
+      "prompt": "alpaca",
+
+      "num_epochs": 1,
+      "batch_size": 8,
+      "micro_batch_size": 2,
+      "lr": 2e-4,
+      "scheduler_type": "constant_with_warmup",
+      "warmup_ratio": 0.03,
+      "group_by_length": true,
+
+      "evaluate_steps": 1000
+    }
+  ]
 }
