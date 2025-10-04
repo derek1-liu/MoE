@@ -1,0 +1,24 @@
+{
+  "adapter_name": "mistral_topk",
+  "num_experts_": 8,
+  "top_k_": 2,
+  "act_fn_": "silu",
+  "router_aux_loss_coef_": 0.01,
+  "router_init_range_": 0.02,
+  "jitter_noise_": 0.0,
+
+  "ffn_dropout_": 0.1,
+  "expert_capacity_": 32,
+
+  "top_p_": 0.9,
+  "temperature_": 1.0,
+
+  "router_z_loss_coef_": 0.001,
+
+  "learning_rate": 2e-4,
+  "batch_size": 8,
+  "epochs": 1,
+
+  "model_type": "mistral",
+  "notes": "Run Mistral-7B with sparse MoE + top-k routing"
+}
