@@ -22,9 +22,9 @@
       "data": "yahma/alpaca-cleaned",
       "prompt": "alpaca",
 
-      "num_epochs": 2,
+      "num_epochs": 3,
       "batch_size": 8,
-      "micro_batch_size": 3,
+      "micro_batch_size": 2,
 
       "lr": 2e-4,
       "scheduler_type": "constant_with_warmup",
