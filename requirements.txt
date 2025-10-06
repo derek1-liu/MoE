@@ -1,4 +1,4 @@
-torch>=2.4.0,<2.6.0
+torch>=2.2.0,<2.6.0
 datasets
 evaluate
 accelerate

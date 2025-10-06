@@ -1,0 +1,14 @@
+{
+    "bias": "none",
+    "peft_type": "LORA",
+    "r": 8,
+    "lora_alpha": 16,
+    "lora_dropout": 0.05,
+    "target_modules": [
+        "gate_proj",
+        "down_proj",
+        "up_proj"
+    ],
+    "base_model_name_or_path": "mistralai/Mistral-7B-v0.1",
+    "task_type": "CAUSAL_LM"
+}

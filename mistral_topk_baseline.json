@@ -1,0 +1,37 @@
+{
+  "cutoff_len": 2048,
+  "train_strategy": "optim",
+  "save_step": 200,
+  "lora": [
+    {
+      "name": "mistral_topk",
+      "method": "mixlora",
+
+      "num_experts": 8,
+      "top_k": 2,
+      "router_aux_loss_coef": 0.01,
+      "router_init_range": 0.02,
+      "jitter_noise": 0.0,
+
+      "r": 8,
+      "lora_alpha": 16,
+      "lora_dropout": 0.05,
+      "target_modules": ["gate_proj", "up_proj", "down_proj"],
+
+      "task_name": "casual",
+      "data": "yahma/alpaca-cleaned",
+      "prompt": "alpaca",
+
+      "num_epochs": 3,
+      "batch_size": 8,
+      "micro_batch_size": 2,
+
+      "lr": 2e-4,
+      "scheduler_type": "constant_with_warmup",
+      "warmup_ratio": 0.03,
+      "group_by_length": true,
+
+      "evaluate_steps": 1000
+    }
+  ]
+}
